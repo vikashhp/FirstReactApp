@@ -13,19 +13,19 @@ let expense=[
   {
     title:'Samsung TV',
     amount:450,
-    date:new Date(2020,2,17),
+    date:new Date(2023,4,17),
     location:'Kolkata'
   },
   {
     title:'Laptop',
     amount:700,
-    date:new Date(2020,2,18),
+    date:new Date(2022,7,18),
     location:'Hazaribagh'
   },
   {
     title:'Chair',
     amount:27.54,
-    date:new Date(2020,2,10),
+    date:new Date(2021,9,10),
     location:'Surat'
   },
 ];
