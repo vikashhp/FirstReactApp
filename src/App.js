@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import ExpenseItem from './components/Expense/ExpenseItem';
+import Card from './components/UI/Card';
 
-function App() {
+const App=()=> {
 let expense=[
   {
     title:'Car Insurance',
@@ -33,7 +34,7 @@ let expense=[
 
 
   return (
-    <div className="App">
+    <Card className="App">
      
         <ExpenseItem title={expense[0].title} amount={expense[0].amount} date={expense[0].date} location={expense[0].location}></ExpenseItem>
              
@@ -44,7 +45,7 @@ let expense=[
         <ExpenseItem title={expense[3].title} amount={expense[3].amount} date={expense[3].date} location={expense[3].location}></ExpenseItem>
     
       
-    </div>
+    </Card>
   );
 }
 
