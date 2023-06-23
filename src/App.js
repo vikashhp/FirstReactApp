@@ -33,13 +33,17 @@ let expense=[
     location:'Surat'
   },
 ];
-
+    const addExpensedata=(expense)=>{
+        console.log('In App.js')
+        console.log(expense)
+       
+    }
 
 
   return (
     <Card className="App">
 
-         <NewExpense></NewExpense>
+         <NewExpense onAddExpense={addExpensedata}/>
         
         <ExpenseItem title={expense[0].title} amount={expense[0].amount} date={expense[0].date} location={expense[0].location}></ExpenseItem>
              
