@@ -3,10 +3,12 @@ import './App.css';
 import ExpenseItem from './components/Expense/ExpenseItem';
 import Card from './components/UI/Card';
 import NewExpense from './components/NewExpense/NewExpense';
+import ExpenseFilter from './components/Expense/ExpenseFilter';
+import {useState} from 'react'
 
 
 
-const App=()=> {
+const App=(props)=> {
 let expense=[
   {
     title:'Car Insurance',
@@ -39,11 +41,20 @@ let expense=[
        
     }
 
+    const [filtredYear,setFiltredYear]=useState('2020');
+
+    const filterChangedHandler=(selectedYear)=>{
+      setFiltredYear(selectedYear)
+
+    }
+
 
   return (
     <Card className="App">
 
          <NewExpense onAddExpense={addExpensedata}/>
+
+         <ExpenseFilter selected={filtredYear} onChangeFilter={filterChangedHandler}></ExpenseFilter>
         
         <ExpenseItem title={expense[0].title} amount={expense[0].amount} date={expense[0].date} location={expense[0].location}></ExpenseItem>
              
