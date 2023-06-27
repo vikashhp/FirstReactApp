@@ -1,74 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
-import ExpenseItem from './components/Expense/ExpenseItem';
-import Card from './components/UI/Card';
-import NewExpense from './components/NewExpense/NewExpense';
-import ExpenseFilter from './components/Expense/ExpenseFilter';
+
+import "./App.css";
+
+import Expenses from "./components/Expense/Expenses";
+
+import NewExpense from "./components/NewExpense/NewExpense";
+
 import {useState} from 'react'
 
-
-
-const App=(props)=> {
-let expense=[
+const dummy_data = [
   {
-    title:'Car Insurance',
-    amount:297.54,
-    date:new Date(2020,2,15),
-    location:'New Delhi'
+    id:'e1',
+    title: "Car Insurance",
+    amount: 297.54,
+    date: new Date(2020, 2, 15),
+    
   },
   {
-    title:'Samsung TV',
-    amount:450,
-    date:new Date(2023,4,17),
-    location:'Kolkata'
+    id:'e2',
+    title: "Samsung TV",
+    amount: 450,
+    date: new Date(2023, 4, 17),
+    
   },
   {
-    title:'Laptop',
-    amount:700,
-    date:new Date(2022,7,18),
-    location:'Hazaribagh'
+    id:'e3',
+    title: "Laptop",
+    amount: 700,
+    date: new Date(2022, 7, 18),
+    
   },
   {
-    title:'Chair',
-    amount:27.54,
-    date:new Date(2021,9,10),
-    location:'Surat'
+    id:'e4',
+    title: "Chair",
+    amount: 27.54,
+    date: new Date(2021, 9, 10),
+  
   },
 ];
-    const addExpensedata=(expense)=>{
-        console.log('In App.js')
-        console.log(expense)
-       
-    }
 
-    const [filtredYear,setFiltredYear]=useState('2020');
 
-    const filterChangedHandler=(selectedYear)=>{
-      setFiltredYear(selectedYear)
+const App = () => {
+ 
+  const [expenses,setExpenses]=useState(dummy_data)
 
-    }
+  const addExpensedata = expense => {
 
+   setExpenses((previousExpense) =>{
+    return [expense,...previousExpense]
+   })
+
+  };
 
   return (
-    <Card className="App">
-
-         <NewExpense onAddExpense={addExpensedata}/>
-
-         <ExpenseFilter selected={filtredYear} onChangeFilter={filterChangedHandler}></ExpenseFilter>
-        
-        <ExpenseItem title={expense[0].title} amount={expense[0].amount} date={expense[0].date} location={expense[0].location}></ExpenseItem>
-             
-        <ExpenseItem title={expense[1].title} amount={expense[1].amount} date={expense[1].date} location={expense[1].location}></ExpenseItem>
-             
-        <ExpenseItem title={expense[2].title} amount={expense[2].amount} date={expense[2].date} location={expense[2].location}></ExpenseItem>
-          
-        <ExpenseItem title={expense[3].title} amount={expense[3].amount} date={expense[3].date} location={expense[3].location}></ExpenseItem>
-
-       
-    
-      
-    </Card>
+    <div>
+      <NewExpense onAddExpense={addExpensedata} />
+      <Expenses items={expenses} />
+    </div>
   );
-}
+};
 
 export default App;
