@@ -5,7 +5,7 @@ import Expenses from "./components/Expense/Expenses";
 
 import NewExpense from "./components/NewExpense/NewExpense";
 
-import {useState} from 'react'
+import {useState} from 'react';
 
 const dummy_data = [
   {
@@ -43,12 +43,14 @@ const App = () => {
  
   const [expenses,setExpenses]=useState(dummy_data)
 
+  
+
   const addExpensedata = expense => {
 
-   setExpenses((previousExpense) =>{
+   setExpenses((previousExpense)=>{
     return [expense,...previousExpense]
    })
-
+   
   };
 
   return (
